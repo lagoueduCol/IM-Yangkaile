@@ -1,0 +1,89 @@
+package ${template.packageName}.controller;
+
+import com.keller.core.response.ServiceResponse;
+import ${template.packageName}.po.${template.entityName};
+import ${template.packageName}.service.${template.entityName}Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+
+/**
+ *  ${template.entityName}Controller
+ * @author ${template.author}
+ * @date ${template.dateStr}
+ */
+@Slf4j
+@RestController
+@RequestMapping("/${template.instanceName}")
+public class ${template.entityName}Controller {
+
+    @Resource
+    private ${template.entityName}Service service;
+
+    /**
+     * 保存数据
+     * @param ${template.instanceName}
+     * @return
+     */
+    @PostMapping
+    public ServiceResponse save(@RequestBody ${template.entityName} ${template.instanceName}){
+        log.info("====== save ${template.instanceName}====== {}",${template.instanceName});
+        return service.save(${template.instanceName});
+    }
+
+    /**
+     * 修改数据
+     * @param ${template.instanceName}
+     * @return
+     */
+    @PutMapping
+    public ServiceResponse update(@RequestBody ${template.entityName} ${template.instanceName}){
+        log.info("====== update ====== {}",${template.instanceName});
+        return service.update(${template.instanceName});
+    }
+
+    /**
+     * 查询数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ServiceResponse getById(@PathVariable Long id){
+        log.info("====== getById ====== {}",id);
+        return service.getById(id);
+    }
+
+    /**
+     * 查询列表
+     * @param ${template.instanceName}
+     * @return
+     */
+    @GetMapping
+    public ServiceResponse queryListByPage(${template.entityName} ${template.instanceName}){
+        log.info("======queryListByPage ====== {}",${template.instanceName});
+        return service.queryListByPage(${template.instanceName});
+    }
+
+    /**
+     * 查询总数
+     * @param ${template.instanceName}
+     * @return
+     */
+    @GetMapping("/count")
+    public ServiceResponse queryCount(${template.entityName} ${template.instanceName}){
+        log.info("======queryCount ====== {}",${template.instanceName});
+        return service.queryCount(${template.instanceName});
+    }
+
+    /**
+     * 删除数据
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public ServiceResponse deleteById(@PathVariable Long id){
+        log.info("====== deleteById ======  {}",id);
+        return service.delete(id);
+    }
+}

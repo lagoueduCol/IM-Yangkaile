@@ -1,0 +1,100 @@
+package ${template.packageName}.service;
+
+import com.keller.core.response.ServiceResponse;
+import com.keller.core.response.ServiceResponseEnum;
+import ${template.packageName}.po.${template.entityName};
+import ${template.packageName}.mapper.${template.entityName}Mapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ *  ${template.entityName}Service
+ * @author ${template.author}
+ * @date ${template.dateStr}
+ */
+@Service
+@Slf4j
+public class ${template.entityName}Service{
+
+
+    @Resource
+    private ${template.entityName}Mapper mapper;
+
+    /**
+     * 保存数据
+     * @param ${template.instanceName}
+     * @return
+     */
+    public ServiceResponse save(${template.entityName} ${template.instanceName}){
+        Integer result = mapper.baseInsert(${template.instanceName});
+        return ServiceResponse.success(result);
+    }
+
+
+    /**
+     * 修改数据
+     * @param ${template.instanceName}
+     * @return
+     */
+    public ServiceResponse update(${template.entityName} ${template.instanceName}){
+        if(${template.instanceName}.getId() == null){
+                return ServiceResponse.error(ServiceResponseEnum.NoId);
+        }
+        Integer result = mapper.baseUpdateById(${template.instanceName});
+        return ServiceResponse.success(result);
+    }
+
+    /**
+     * 查询数据
+     * @param id
+     * @return
+     */
+    public ServiceResponse getById(Long id){
+        if(id == null){
+            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+        }
+        ${template.entityName} ${template.instanceName} = new ${template.entityName}();
+        ${template.instanceName}.setId(id);
+        ${template.instanceName} = mapper.baseSelectById(${template.instanceName});
+        return ServiceResponse.success(${template.instanceName});
+    }
+
+    /**
+     * 查询列表，可指定查询条件
+     * @param ${template.instanceName}
+     * @return
+     */
+    public ServiceResponse queryListByPage(${template.entityName} ${template.instanceName}){
+        List<${template.entityName}> list = mapper.baseSelectPageList(${template.instanceName});
+        return ServiceResponse.success(list);
+    }
+
+    /**
+     * 查询总数，可指定查询条件
+     * @param ${template.instanceName}
+     * @return
+     */
+    public ServiceResponse queryCount(${template.entityName} ${template.instanceName}){
+        Integer result = mapper.baseSelectCount(${template.instanceName});
+        return ServiceResponse.success(result);
+    }
+
+    /**
+     * 删除数据
+     * @param id
+     * @return
+     */
+    public ServiceResponse delete(Long id){
+        if(id == null){
+            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+        }
+        ${template.entityName} ${template.instanceName} = new ${template.entityName}();
+        ${template.instanceName}.setId(id);
+        Integer result = mapper.baseDeleteById(${template.instanceName});
+        return ServiceResponse.success(result);
+    }
+
+}

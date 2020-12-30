@@ -1,0 +1,33 @@
+package ${template.packageName}.po;
+
+
+import com.keller.core.mybatis.BaseEntity;
+import com.keller.core.mybatis.annotation.FieldAttribute;
+import com.keller.core.mybatis.annotation.TableAttribute;
+import lombok.Data;
+
+
+/**
+ *
+ * @author ${template.author}
+ * @date ${template.dateStr}
+ */
+@Data
+@TableAttribute(name = "${template.tableName}")
+public class ${template.entityName} extends BaseEntity{
+<%
+    for(attr in template.list){
+        if(attr.comment != null){
+            println("     /**");
+            println("     * " + attr.comment);
+            println("     */");
+         }
+        println("     @FieldAttribute");
+        println("     private " + attr.javaType + " " + attr.javaName + ";");
+
+
+    }
+%>
+
+
+  }

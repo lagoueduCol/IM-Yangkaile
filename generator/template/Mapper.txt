@@ -1,0 +1,33 @@
+package ${template.packageName}.mapper;
+
+import com.keller.core.mybatis.BaseMapper;
+import ${template.packageName}.po.${template.entityName};
+import org.apache.ibatis.annotations.*;
+
+/**
+ *  ${template.entityName}Mapper接口
+ * @author ${template.author}
+ * @date ${template.dateStr}
+ */
+@Mapper
+public interface ${template.entityName}Mapper extends BaseMapper<${template.entityName}>{
+
+    /**
+     *  表名
+     */
+    String tableName = "${template.tableName}";
+
+    /**
+     * 表中所有字段
+     */
+    String fullFields ="<%
+        for(attr in template.list)
+        {
+            if(attrLP.last)
+                print(attr.name);
+            else
+                print(attr.name + ", ");
+        }
+     %>";
+
+}

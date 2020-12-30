@@ -1,0 +1,38 @@
+spring:
+  application:
+    #服务名
+    name: Gateway
+  cloud:
+    nacos:
+      discovery:
+        # nacos服务发现地址
+        server-addr: 127.0.0.1:8848
+      config:
+        # nacos配置管理地址
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          # 网关配置
+          # gateway开启服务注册和发现的功能，
+          # 并且spring cloud gateway自动根据服务发现为每一个服务创建了一个router，这个router将以服务名开头的请求路径转发到对应的服务。
+          enabled: true
+
+  datasource:
+    #mysql连接地址
+    url: jdbc:mysql://localhost:3306/im?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    #mysql用户名
+    username: root
+    #mysql密码
+    password: 123456
+
+
+server:
+  # 服务端口号
+  port: 8800
+
+
+mybatis:
+  configuration:
+    # 开启MyBatis数据库字段名到Java属性名的映射（下划线转驼峰）
+    map-underscore-to-camel-case: true
