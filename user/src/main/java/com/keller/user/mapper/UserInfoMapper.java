@@ -21,4 +21,5 @@ public interface UserInfoMapper extends BaseMapper<UserInfo>{
      * 表中所有字段
      */
     String fullFields ="id, nick_name, gender, avatar, avatar_thum, mask, mail, phone_no, signature, birthday, address, register_time, no_notify_start, no_notify_end, update_time, version";
+
 }

@@ -1,8 +1,8 @@
 package com.keller.friend.client;
 
 
-import com.keller.core.MyResponse;
 import com.keller.core.constant.ServiceNameConstant;
+import com.keller.core.response.ServiceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface UserClient {
 
     @GetMapping("/test")
-    MyResponse test();
+    ServiceResponse test();
 }

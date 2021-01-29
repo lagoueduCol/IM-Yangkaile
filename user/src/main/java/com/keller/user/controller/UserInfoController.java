@@ -3,6 +3,8 @@ package com.keller.user.controller;
 import com.keller.core.response.ServiceResponse;
 import com.keller.core.po.user.UserInfo;
 import com.keller.user.service.UserInfoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,7 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @RestController
+@Api(value = "userInfo",tags = {"用户详情"})
 @RequestMapping("/userInfo")
 public class UserInfoController {
 
@@ -27,6 +30,7 @@ public class UserInfoController {
      * @return
      */
     @PostMapping
+    @ApiOperation(value = "保存用户详情",notes = "必填参数有***",tags = {"保存"},response = Integer.class)
     public ServiceResponse save(@RequestBody UserInfo userInfo){
         log.info("====== save userInfo====== {}",userInfo);
         return service.save(userInfo);

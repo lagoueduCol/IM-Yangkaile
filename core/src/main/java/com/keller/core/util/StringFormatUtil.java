@@ -6,14 +6,25 @@ import java.util.regex.Pattern;
 
 /**
  * 字符串格式工具类
+ * @author yangkaile
+ * @date 2021-01-23 17:53:51
  */
 public class StringFormatUtil {
 
-    public static final String userNameFormat = "";
+    /**
+     * 用户名 4到20位字母、数字、下划线的组合，不能以数字开头
+     */
+    public static final String userNameFormat = "^[^0-9][\\w_]{3,19}$";
 
-    public static final String emailFormat = "";
+    /**
+     * 邮箱
+     */
+    public static final String emailFormat = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
 
-    public static final String phoneFormat = "";
+    /**
+     * 手机号，11位数字，必须是1开头
+     */
+    public static final String phoneFormat = "^1\\d{10}$";
 
 
     /**
@@ -31,6 +42,13 @@ public class StringFormatUtil {
         }else{
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(matchesUserNameType("16619926850"));
+        System.out.println(matchesUserNameType("guyexing@foxmail.com"));
+        System.out.println(matchesUserNameType("NickName001"));
+        System.out.println(matchesUserNameType("凯乐1001"));
     }
 
 }

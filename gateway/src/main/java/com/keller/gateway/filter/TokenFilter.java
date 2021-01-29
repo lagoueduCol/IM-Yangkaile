@@ -41,7 +41,26 @@ public class TokenFilter implements GlobalFilter, Ordered {
 
         //无Token，只能访问开放接口
         if (Strings.isBlank(token)) {
+            //如果是WebSocket请求，Token在请求路径后面，不在Header中
+            if(RequestConstant.WEB_SOCKET_URL.equals(prefix)){
+                //从请求路径中获取到Token,进行校验，并替换成UserId
+                String wsToken = request.getPath().toString();
+                wsToken = wsToken.substring(wsToken.lastIndexOf("/") + 1, wsToken.length());
+                JwtEntity jwtEntity = JwtUtil.readLoginToken(wsToken);
+                //校验失败，非法访问，记录请求IP
+                if (jwtEntity == null ){
+                    // TODO 记录异常请求（Token校验失败）
+                    log.error("TokenError: Empty...");
+                    exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+                    return exchange.getResponse().setComplete();
+                }
+                //转发请求
+                return chain.filter(exchange);
+            }
+            //访问开放接口的请求直接放行
             if (RequestConstant.OPEN_URL.equals(prefix)) {
+                //TODO 对所有开放接口添加访问频率限制，每个1分钟内只能调用1次
+
                 return chain.filter(exchange);
             }else {
                 //TODO 记录异常请求（无Token访问需要鉴权的接口）

@@ -22,8 +22,20 @@ public class ServiceResponse{
      */
     private Object data;
 
+
+
+    public static ServiceResponse NoParams(){
+        return error(ServiceResponseEnum.NoParams);
+    }
+
+
     public static ServiceResponse error(ServiceResponseEnum response){
         return new ServiceResponse (response);
+    }
+
+    public static ServiceResponse success(){
+        ServiceResponse result = new ServiceResponse(ServiceResponseEnum.Success);
+        return result;
     }
 
     public static ServiceResponse success(Object data){

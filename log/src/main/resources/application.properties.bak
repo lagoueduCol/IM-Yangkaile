@@ -1,0 +1,11 @@
+# 发送邮件的服务器
+spring.mail.host=smtp.aliyun.com
+spring.mail.username=atomiclong@aliyun.com
+spring.mail.password=meng2211679802
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+spring.mail.default-encoding=utf-8
+
+
+

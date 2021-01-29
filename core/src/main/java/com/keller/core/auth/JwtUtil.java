@@ -37,11 +37,16 @@ public class JwtUtil {
     private static final String USER_ID = "UserId";
 
     /**
+     * 用户名
+     */
+    private static final String USER_NAME = "UserName";
+
+    /**
      * 验证码，重置密码类型的Token中会带有验证码
      */
     private static final String CODE = "Code";
 
-    public static String buildLoginToken(Integer userId,RoleEnums role){
+    public static String buildLoginToken(Long userId,String userName,RoleEnums role){
         long now=System.currentTimeMillis();
         JwtBuilder jwtBuilder = Jwts.builder()
                 .setId(UUID.randomUUID().toString())
@@ -57,11 +62,18 @@ public class JwtUtil {
                 .claim(ROLE,role.name())
                 //设置用户ID
                 .claim(USER_ID,userId)
+                //设置用户名
+                .claim(USER_NAME,userName)
                 //签名 密钥
                 .signWith(SignatureAlgorithm.HS256, GlobalConstant.TOKEN_SIGN_KEY);
         return jwtBuilder.compact();
     }
 
+    /**
+     * 解析登录Token
+     * @param token
+     * @return
+     */
     public static JwtEntity readLoginToken(String token){
         JwtEntity entity = new JwtEntity();
         try {
@@ -80,19 +92,36 @@ public class JwtUtil {
                 return null;
             }
             entity.setType(type);
-            entity.setUserId(claims.get(USER_ID,Integer.class));
+            entity.setUserId(claims.get(USER_ID,Long.class));
+            entity.setUserName(claims.get(USER_NAME,String.class));
             entity.setRole(claims.get(ROLE,String.class));
+            if(entity.getUserId() == null || entity.getRole() == null){
+                return null;
+            }
             return entity;
 
         }catch (Exception e){
-            log.error("readLoginToken Token解析失败");
-            e.printStackTrace();
+            log.error("readLoginToken Token解析失败,{}",e.getMessage());
             return null;
         }
     }
 
+    /**
+     * 读取UserId
+     * @param token
+     * @return
+     */
+    public static Long readUserId(String token){
+        JwtEntity entity = readLoginToken(token);
+        if(entity == null || entity.getUserId() == null){
+            return null;
+        }
+        return entity.getUserId();
+    }
+
+
     public static void main(String[] args) {
-        String token = buildLoginToken(1001,RoleEnums.Admin);
+        String token = buildLoginToken(1001L,"地瓜炖土豆",RoleEnums.Admin);
 //String token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlZmY4OTllYy1iOWUwLTRhMDQtYWYxZi1mODU2ODZkM2MwZjQiLCJzdWIiOiJLZWxsZXJfSU0iLCJpYXQiOjE2MDc3OTQxOTEsImV4cCI6MTYwNzc5NDIzNCwiVHlwZSI6ImxvZ2luIiwiUm9sZSI6IkFkbWluIiwiVXNlcklkIjoxMDAxfQ.Tx4V6IhSvCLwNr-sUogXhKHuvF7VY9UVmFIqCKgeS60";
         System.out.println(token);
 

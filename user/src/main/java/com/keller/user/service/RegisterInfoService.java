@@ -1,8 +1,11 @@
 package com.keller.user.service;
 
+import com.keller.core.enums.UserNameTypeEnums;
 import com.keller.core.response.ServiceResponse;
 import com.keller.core.response.ServiceResponseEnum;
 import com.keller.core.po.user.RegisterInfo;
+import com.keller.core.util.StringFormatUtil;
+import com.keller.core.util.StringUtils;
 import com.keller.user.mapper.RegisterInfoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,31 @@ public class RegisterInfoService{
     public ServiceResponse save(RegisterInfo registerInfo){
         Integer result = mapper.baseInsert(registerInfo);
         return ServiceResponse.success(result);
+    }
+
+
+    /**
+     * 查询用户，
+     * @param userName 用户名、手机号、邮箱
+     * @return
+     */
+    public RegisterInfo getByKey(String userName){
+
+        UserNameTypeEnums type = StringFormatUtil.matchesUserNameType(userName);
+
+        if(UserNameTypeEnums.UserName.equals(type)){
+            return mapper.getByUserName(userName);
+        }
+
+        if(UserNameTypeEnums.Mail.equals(type)){
+            return mapper.getByMail(userName);
+        }
+
+        if(UserNameTypeEnums.Phone.equals(userName)){
+            return mapper.getByPhoneNo(userName);
+        }
+
+        return null;
     }
 
 

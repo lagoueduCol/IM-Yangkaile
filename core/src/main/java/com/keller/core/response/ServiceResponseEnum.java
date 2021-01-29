@@ -13,7 +13,9 @@ public enum ServiceResponseEnum {
     /**
      * 缺少必要参数
      */
-    NoParams("100002","缺少必要参数");
+    NoParams("100002","缺少必要参数"),
+
+    NoService("100004","没找到相应的服务");
 
     public String code;
     public String message;

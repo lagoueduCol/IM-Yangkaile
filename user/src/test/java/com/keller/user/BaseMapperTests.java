@@ -74,17 +74,7 @@ class BaseMapperTests {
         entity = registerInfoMapper.baseSelectById(entity);
         Console.info("entity",entity);
     }
-
-    @Test
-    void baseSelectByCondition(){
-        RegisterInfo entity = new RegisterInfo();
-        entity.setUserName("yang001");
-        entity.setBaseCondition(RegisterInfoMapper.selectByUserName);
-        List<RegisterInfo> list = registerInfoMapper.baseSelectByCondition(entity);
-        for (RegisterInfo info : list) {
-            Console.println("info",info);
-        }
-    }
+    
 
     @Test
     void baseSelectList(){

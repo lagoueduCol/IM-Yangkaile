@@ -20,5 +20,5 @@ public interface GroupMessageInfoMapper extends BaseMapper<GroupMessageInfo>{
     /**
      * 表中所有字段
      */
-    String fullFields ="id, group_id, member_id, user_id, notity_member_ids, type, status, content, index, create_time";
+    String fullFields ="id, group_id, member_id, user_id, notify_member_ids, type, status, content, index, create_time";
 }

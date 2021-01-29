@@ -1,6 +1,7 @@
-package com.keller.friend;
+package com.keller.friend.controller;
 
-import com.keller.core.MyResponse;
+import com.keller.core.response.ServiceResponse;
+import com.keller.core.response.ServiceResponseEnum;
 import com.keller.friend.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -38,24 +39,24 @@ public class TestController {
     }
 
     @GetMapping("/user")
-    public MyResponse getUser(){
+    public ServiceResponse getUser(){
         List<ServiceInstance> instances = discoveryClient.getInstances("user");
         if(instances == null || instances.isEmpty()){
-            return MyResponse.error("Not Found!");
+            return ServiceResponse.error(ServiceResponseEnum.NoService);
         }
         ServiceInstance instance = instances.get(0);
         System.out.println(instance.getHost());
         System.out.println(instance.getPort());
         System.out.println(instance.getUri());
         String url = instance.getUri() + "/test";
-        ResponseEntity<MyResponse> responseEntity = restTemplate.getForEntity(url,MyResponse.class);
-        MyResponse response = responseEntity.getBody();
+        ResponseEntity<ServiceResponse> responseEntity = restTemplate.getForEntity(url,ServiceResponse.class);
+        ServiceResponse response = responseEntity.getBody();
         System.out.println(response);
         return response;
     }
 
     @GetMapping("/feignUser")
-    public MyResponse feignUser(){
+    public ServiceResponse feignUser(){
         return userClient.test();
     }
 }

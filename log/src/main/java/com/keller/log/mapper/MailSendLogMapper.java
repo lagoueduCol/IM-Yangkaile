@@ -1,5 +1,6 @@
 package com.keller.log.mapper;
 
+import com.keller.core.enums.StatusEnums;
 import com.keller.core.mybatis.BaseMapper;
 import com.keller.core.po.log.MailSendLog;
 import org.apache.ibatis.annotations.*;
@@ -21,4 +22,8 @@ public interface MailSendLogMapper extends BaseMapper<MailSendLog>{
      * 表中所有字段
      */
     String fullFields ="id, type, from_mail, to_mail, title, content, code, code_status, send_time, update_time";
+
+    @Select({
+            "SELECT ",fullFields," FROM ",tableName," WHERE code_status = " ,StatusEnums.Available.name()
+    })
 }

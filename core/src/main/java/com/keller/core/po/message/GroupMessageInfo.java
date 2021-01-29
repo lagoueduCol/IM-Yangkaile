@@ -39,7 +39,7 @@ public class GroupMessageInfo extends BaseEntity{
      * 要提醒的成员ID
      */
      @FieldAttribute
-     private String notityMemberIds;
+     private String notifyMemberIds;
      /**
      * 消息类型
      */

@@ -4,6 +4,7 @@ package com.keller.core.po.log;
 import com.keller.core.mybatis.BaseEntity;
 import com.keller.core.mybatis.annotation.FieldAttribute;
 import com.keller.core.mybatis.annotation.TableAttribute;
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 
@@ -24,7 +25,7 @@ public class MailSendLog extends BaseEntity{
      * 邮件类型
      */
      @FieldAttribute
-     private Long type;
+     private String type;
      /**
      * 发件人
      */
@@ -54,12 +55,19 @@ public class MailSendLog extends BaseEntity{
      * 验证码状态
      */
      @FieldAttribute
-     private Integer codeStatus;
+     private String codeStatus;
      /**
      * 发送时间
      */
      @FieldAttribute
      private Long sendTime;
+
+     @FieldAttribute
+     private String sendResult;
+
+     @FieldAttribute
+     private String sendStatus;
+
      /**
      * 更新时间
      */

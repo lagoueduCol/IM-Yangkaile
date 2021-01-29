@@ -1,6 +1,8 @@
 package com.keller.user.controller;
 
-import com.keller.core.MyResponse;
+import com.keller.core.constant.RequestConstant;
+import com.keller.core.response.ServiceResponse;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Slf4j
-@RequestMapping("/admin")
+@Api(value = "管理",tags = {"管理员"})
+@RequestMapping(RequestConstant.ADMIN_URL)
 public class TestAdminController {
 
     /**
@@ -21,7 +24,7 @@ public class TestAdminController {
      * @return
      */
     @GetMapping
-    public MyResponse test(){
-        return MyResponse.success("User Admin!");
+    public ServiceResponse test(){
+        return ServiceResponse.success("User Admin!");
     }
 }

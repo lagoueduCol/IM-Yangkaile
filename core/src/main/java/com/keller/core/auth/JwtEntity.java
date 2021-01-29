@@ -10,11 +10,28 @@ import lombok.Data;
  */
 @Data
 public class JwtEntity {
-    private Integer userId;
+    /**
+     * 用户Id
+     */
+    private Long userId;
 
+    /**
+     * 用户名
+     */
+    private String userName;
+
+    /**
+     * 角色
+     */
     private String role;
 
+    /**
+     * 类型
+     */
     private String type;
 
+    /**
+     * 附加码
+     */
     private String code;
 }
