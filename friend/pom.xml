@@ -47,7 +47,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>com.keller.friend.FriendApplication</mainClass>
+                            <mainClass>com.keller.im.friend.FriendApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

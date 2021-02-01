@@ -11,6 +11,16 @@
     <name>core</name>
     <description>IM系统核心包，包含常量、工具类、公用对象等</description>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.4.0</spring-boot.version>
+        <spring-cloud.version>2020.0.0-M6</spring-cloud.version>
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+
     <build>
         <finalName>core</finalName>
     </build>

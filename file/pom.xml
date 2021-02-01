@@ -42,7 +42,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>com.keller.file.FileApplication</mainClass>
+                            <mainClass>com.keller.im.file.FileApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

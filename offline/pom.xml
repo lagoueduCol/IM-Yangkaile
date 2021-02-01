@@ -51,7 +51,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>com.keller.offline.OfflineApplication</mainClass>
+                            <mainClass>com.keller.im.offline.OfflineApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

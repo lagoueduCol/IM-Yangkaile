@@ -58,7 +58,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>com.keller.message.MessageApplication</mainClass>
+                            <mainClass>com.keller.im.message.MessageApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

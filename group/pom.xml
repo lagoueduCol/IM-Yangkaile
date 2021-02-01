@@ -38,7 +38,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>com.keller.group.GroupApplication</mainClass>
+                            <mainClass>com.keller.im.group.GroupApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

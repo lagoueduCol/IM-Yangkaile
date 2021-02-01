@@ -8,11 +8,10 @@ target/
 mvnw
 mvnw.cmd
 
-
-
 */target/
 */.mvn/
 */.iml
 */mvnw
 */mvnw.cmd
+*/.DS_Store
 

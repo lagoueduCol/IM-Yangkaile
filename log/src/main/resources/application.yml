@@ -26,7 +26,7 @@ spring:
   # Kafka 配置
   kafka:
     # 服务器地址
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: localhost:9092
     # 生产者配置
     producer:
       # 发生错误后，消息重发的次数。

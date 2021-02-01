@@ -109,8 +109,6 @@
             <version>2.10.0</version>
         </dependency>
 
-
-
         <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
         <!--Nacos 服务发现-->
         <!--由于SpringCloud Feign在Hoxton.M2 RELEASED版本之后不再使用Ribbon而是使用spring-cloud-loadbalancer，所以不引入spring-cloud-loadbalancer会报错-->
@@ -128,13 +126,11 @@
             </exclusions>
         </dependency>
 
-
         <!--openfeign 的 loadbalancer 依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
         <!--JWT-->
@@ -142,6 +138,12 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
+        </dependency>
+
+        <!--Kafka-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
 
     </dependencies>
