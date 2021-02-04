@@ -1,4 +1,4 @@
-package com.keller.im.core.enums;
+package com.keller.im.core.message.enums;
 
 /**
  * 消息类型
@@ -17,5 +17,5 @@ public enum MessageTypeEnums {
     /**
      * 群消息
      */
-    Group;
+    Group
 }

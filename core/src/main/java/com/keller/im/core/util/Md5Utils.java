@@ -21,9 +21,7 @@ public class Md5Utils {
      * @throws NoSuchAlgorithmException,UnsupportedEncodingException 加密过程中抛的异常
      */
     public static String EncoderByMd5(String str) throws NoSuchAlgorithmException,UnsupportedEncodingException {
-        return new BASE64Encoder().encode(
-                MessageDigest.getInstance("MD5").digest(str.getBytes("utf-8"))
-        );
+        return new BASE64Encoder().encode(MessageDigest.getInstance("MD5").digest(str.getBytes("utf-8")));
     }
 
     /**
@@ -37,25 +35,11 @@ public class Md5Utils {
      * @return
      */
     public static String getMd5String(String str) {
-
         try {
             // 参数代表的是算法名称
             MessageDigest md5 = MessageDigest.getInstance("md5");
             byte[] result = md5.digest(str.getBytes());
-
-            StringBuilder sb = new StringBuilder(32);
-            // 将结果转为16进制字符  0~9 A~F
-            for (int i = 0; i < result.length; i++) {
-                // 一个字节对应两个字符
-                byte x = result[i];
-                // 取得高位
-                int h = 0x0f & (x >>> 4);
-                // 取得低位
-                int l = 0x0f & x;
-                sb.append(chars[h]).append(chars[l]);
-            }
-            return sb.toString();
-
+            return new BASE64Encoder().encode(result);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
@@ -80,5 +64,14 @@ public class Md5Utils {
         }
         return false;
     }
+
+    public static void main(String[] args) throws Exception{
+        String str = "你好";
+        String md5Str = getMd5String(str);
+        Console.println("GetMd5",md5Str);
+        Console.println("md5Str",EncoderByMd5(md5Str));
+        Console.println("checkQual",checkQual(str,md5Str));
+    }
+
 
 }

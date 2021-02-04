@@ -1,4 +1,4 @@
-package com.keller.im.core.enums;
+package com.keller.im.core.message.enums;
 
 /**
  * 媒体消息

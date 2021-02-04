@@ -2,6 +2,8 @@ package com.keller.im.user.controller;
 
 import com.keller.im.core.constant.RequestConstant;
 import com.keller.im.core.response.ServiceResponse;
+import com.keller.im.core.response.ServiceResponseEnum;
+import com.keller.im.core.util.UserNameFormatUtil;
 import com.keller.im.user.service.OpenService;
 import com.keller.im.user.vo.LoginVo;
 import io.swagger.annotations.*;
@@ -26,7 +28,7 @@ public class OpenController {
 
     /**
      * 查询用户名是否可注册
-     * @param name
+     * @param name 可以是邮箱、手机号、用户名
      * @return
      */
     @ApiOperation(value = "查询用户名是可注册",tags = {"注册"},notes = "如果可以注册,返回 true；否则，返回 false")
@@ -36,12 +38,15 @@ public class OpenController {
         if(!StringUtils.hasText(name)){
             return ServiceResponse.NoParams();
         }
-        return ServiceResponse.success(service.checkRegister(name));
+        if(UserNameFormatUtil.notAvailable(name)){
+            return ServiceResponse.error(ServiceResponseEnum.UserUserNameNotAvailable);
+        }
+        return service.checkRegister(name);
     }
 
     /**
      * 发送注册验证码
-     * @param name
+     * @param name 可以是邮箱、手机号
      * @return
      */
     @ApiOperation(value = "发送注册验证码",tags = {"注册","验证码"},notes = "")
@@ -50,7 +55,11 @@ public class OpenController {
         if(!StringUtils.hasText(name)){
             return ServiceResponse.NoParams();
         }
-        return ServiceResponse.success();
+        if(!UserNameFormatUtil.isMailOrPhoneNo(name)){
+            return ServiceResponse.error(ServiceResponseEnum.CommonErrorParams);
+        }
+
+        return service.sendRegisterCode(name);
     }
 
     /**

@@ -4,10 +4,6 @@ import com.keller.im.core.mapper.log.LoginLogMapper;
 import com.keller.im.core.po.log.LoginLog;
 import com.keller.im.core.response.ServiceResponse;
 import com.keller.im.core.response.ServiceResponseEnum;
-import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.response.ServiceResponseEnum;
-import com.keller.im.core.po.log.LoginLog;
-import com.keller.im.core.mapper.log.LoginLogMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +41,7 @@ public class LoginLogService{
      */
     public ServiceResponse update(LoginLog loginLog){
         if(loginLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(loginLog);
         return ServiceResponse.success(result);
@@ -58,7 +54,7 @@ public class LoginLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         LoginLog loginLog = new LoginLog();
         loginLog.setId(id);
@@ -93,7 +89,7 @@ public class LoginLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         LoginLog loginLog = new LoginLog();
         loginLog.setId(id);

@@ -21,5 +21,13 @@ public enum StatusEnums {
     /**
      * 异常的
      */
-    Exception
+    Exception,
+    /**
+     * 已完成的
+     */
+    Finish,
+    /**
+     * 成功的
+     */
+    Success;
 }

@@ -1,6 +1,6 @@
 package com.keller.im.message.util;
 
-import com.keller.im.core.enums.SystemMessageEventEnums;
+import com.keller.im.core.message.enums.SystemMessageEventEnums;
 import com.keller.im.message.constant.MessageConstant;
 import com.keller.im.core.message.SystemMessage;
 import com.keller.im.core.message.body.TextBody;

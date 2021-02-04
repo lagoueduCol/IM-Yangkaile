@@ -1,8 +1,8 @@
 package com.keller.im.user.controller;
 
-import com.keller.log.auth.JwtEntity;
-import com.keller.log.auth.JwtUtil;
 import com.keller.im.core.enums.RequestHeaderEnums;
+import com.keller.im.core.jwt.JwtEntity;
+import com.keller.im.core.jwt.JwtUtil;
 import com.keller.im.core.response.ServiceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

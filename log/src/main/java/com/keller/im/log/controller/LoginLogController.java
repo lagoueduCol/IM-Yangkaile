@@ -2,9 +2,7 @@ package com.keller.im.log.controller;
 
 import com.keller.im.core.po.log.LoginLog;
 import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.po.log.LoginLog;
-import com.keller.im.core.service.LoginLogService;
+import com.keller.im.log.service.LoginLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

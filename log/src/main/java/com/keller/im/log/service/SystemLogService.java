@@ -3,10 +3,7 @@ package com.keller.im.log.service;
 import com.keller.im.core.mapper.log.SystemLogMapper;
 import com.keller.im.core.response.ServiceResponse;
 import com.keller.im.core.response.ServiceResponseEnum;
-import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.response.ServiceResponseEnum;
 import com.keller.im.core.po.log.SystemLog;
-import com.keller.im.core.mapper.log.SystemLogMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +41,7 @@ public class SystemLogService{
      */
     public ServiceResponse update(SystemLog systemLog){
         if(systemLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(systemLog);
         return ServiceResponse.success(result);
@@ -57,7 +54,7 @@ public class SystemLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         SystemLog systemLog = new SystemLog();
         systemLog.setId(id);
@@ -92,7 +89,7 @@ public class SystemLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         SystemLog systemLog = new SystemLog();
         systemLog.setId(id);

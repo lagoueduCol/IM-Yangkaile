@@ -1,7 +1,6 @@
 package com.keller.im.core.message.body;
 
-import com.keller.im.core.enums.MessageBodyEnums;
-import com.keller.im.core.enums.MessageBodyEnums;
+import com.keller.im.core.message.enums.MessageBodyEnums;
 import lombok.Data;
 
 /**

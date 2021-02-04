@@ -41,7 +41,7 @@ public class FriendRelationService{
      */
     public ServiceResponse update(FriendRelation friendRelation){
         if(friendRelation.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(friendRelation);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class FriendRelationService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         FriendRelation friendRelation = new FriendRelation();
         friendRelation.setId(id);
@@ -89,7 +89,7 @@ public class FriendRelationService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         FriendRelation friendRelation = new FriendRelation();
         friendRelation.setId(id);

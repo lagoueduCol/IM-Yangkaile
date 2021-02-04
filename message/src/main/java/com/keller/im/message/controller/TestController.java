@@ -23,7 +23,7 @@ public class TestController {
             return ServiceResponse.success();
         }catch (Exception e){
             e.printStackTrace();
-            return ServiceResponse.error(ServiceResponseEnum.NoService);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoService);
         }
 
     }

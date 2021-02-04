@@ -41,7 +41,7 @@ public class UserInfoService{
      */
     public ServiceResponse update(UserInfo userInfo){
         if(userInfo.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(userInfo);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class UserInfoService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         UserInfo userInfo = new UserInfo();
         userInfo.setId(id);
@@ -89,7 +89,7 @@ public class UserInfoService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         UserInfo userInfo = new UserInfo();
         userInfo.setId(id);

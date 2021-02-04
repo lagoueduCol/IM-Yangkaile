@@ -1,10 +1,10 @@
 package com.keller.im.gateway.filter;
 
-import com.keller.log.auth.JwtEntity;
-import com.keller.log.auth.JwtUtil;
 import com.keller.im.core.constant.RequestConstant;
 import com.keller.im.core.enums.RequestHeaderEnums;
 import com.keller.im.core.enums.RoleEnums;
+import com.keller.im.core.jwt.JwtEntity;
+import com.keller.im.core.jwt.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -59,7 +59,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
             }
             //访问开放接口的请求直接放行
             if (RequestConstant.OPEN_URL.equals(prefix)) {
-                //TODO 对所有开放接口添加访问频率限制，每个1分钟内只能调用1次
+                //TODO 对所有开放接口添加访问频率限制，每个1分钟内只能调用1次(Redis实现)
 
                 return chain.filter(exchange);
             }else {

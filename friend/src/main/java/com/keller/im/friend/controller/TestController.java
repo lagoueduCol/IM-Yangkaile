@@ -42,7 +42,7 @@ public class TestController {
     public ServiceResponse getUser(){
         List<ServiceInstance> instances = discoveryClient.getInstances("user");
         if(instances == null || instances.isEmpty()){
-            return ServiceResponse.error(ServiceResponseEnum.NoService);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoService);
         }
         ServiceInstance instance = instances.get(0);
         System.out.println(instance.getHost());

@@ -5,11 +5,11 @@ import com.keller.im.core.enums.UserNameTypeEnums;
 import java.util.regex.Pattern;
 
 /**
- * 字符串格式工具类
+ * 用户名格式
  * @author yangkaile
  * @date 2021-01-23 17:53:51
  */
-public class StringFormatUtil {
+public class UserNameFormatUtil {
 
     /**
      * 用户名 4到20位字母、数字、下划线的组合，不能以数字开头
@@ -42,6 +42,34 @@ public class StringFormatUtil {
         }else{
             return null;
         }
+    }
+
+    /**
+     * 判断用户名是否是手机号或者邮箱
+     * @param name
+     * @return
+     */
+    public static boolean isMailOrPhoneNo(String name){
+        return Pattern.matches(emailFormat,name) || Pattern.matches(phoneFormat, name);
+    }
+
+    public static boolean isUserName(String name){
+        return Pattern.matches(userNameFormat,name);
+    }
+
+    public static boolean isMail(String name){
+        return Pattern.matches(emailFormat,name);
+    }
+
+    public static boolean isPhone(String name){
+        return Pattern.matches(phoneFormat, name);
+    }
+
+    public static boolean available(String name){
+        return isMailOrPhoneNo(name) || isUserName(name);
+    }
+    public static boolean notAvailable(String name){
+        return !available(name);
     }
 
     public static void main(String[] args) {

@@ -41,7 +41,7 @@ public class ExceptionRequestLogService{
      */
     public ServiceResponse update(ExceptionRequestLog exceptionRequestLog){
         if(exceptionRequestLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(exceptionRequestLog);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class ExceptionRequestLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         ExceptionRequestLog exceptionRequestLog = new ExceptionRequestLog();
         exceptionRequestLog.setId(id);
@@ -89,7 +89,7 @@ public class ExceptionRequestLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         ExceptionRequestLog exceptionRequestLog = new ExceptionRequestLog();
         exceptionRequestLog.setId(id);

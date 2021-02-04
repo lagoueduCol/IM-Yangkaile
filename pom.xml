@@ -8,10 +8,10 @@
         <version>2.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.keller</groupId>
-    <artifactId>im</artifactId>
+    <groupId>com.keller.im</groupId>
+    <artifactId>root</artifactId>
     <version>0.0.1</version>
-    <name>im</name>
+    <name>root</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 

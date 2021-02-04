@@ -1,10 +1,9 @@
 package com.keller.im.user.service;
 
-import com.keller.im.core.enums.UserNameTypeEnums;
 import com.keller.im.core.response.ServiceResponse;
 import com.keller.im.core.response.ServiceResponseEnum;
 import com.keller.im.core.po.user.RegisterInfo;
-import com.keller.im.core.util.StringFormatUtil;
+import com.keller.im.core.util.UserNameFormatUtil;
 import com.keller.im.core.mapper.user.RegisterInfoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -37,26 +36,24 @@ public class RegisterInfoService{
 
 
     /**
-     * 查询用户，
+     * 查询用户
      * @param userName 用户名、手机号、邮箱
      * @return
      */
     public RegisterInfo getByKey(String userName){
 
-        UserNameTypeEnums type = StringFormatUtil.matchesUserNameType(userName);
-
-        if(UserNameTypeEnums.UserName.equals(type)){
+        if(UserNameFormatUtil.notAvailable(userName)){
+            return null;
+        }
+        if(UserNameFormatUtil.isUserName(userName)){
             return mapper.getByUserName(userName);
         }
-
-        if(UserNameTypeEnums.Mail.equals(type)){
+        if(UserNameFormatUtil.isMail(userName)){
             return mapper.getByMail(userName);
         }
-
-        if(UserNameTypeEnums.Phone.equals(userName)){
+        if(UserNameFormatUtil.isPhone(userName)){
             return mapper.getByPhoneNo(userName);
         }
-
         return null;
     }
 
@@ -68,7 +65,7 @@ public class RegisterInfoService{
      */
     public ServiceResponse update(RegisterInfo registerInfo){
         if(registerInfo.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(registerInfo);
         return ServiceResponse.success(result);
@@ -81,7 +78,7 @@ public class RegisterInfoService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         RegisterInfo registerInfo = new RegisterInfo();
         registerInfo.setId(id);
@@ -116,7 +113,7 @@ public class RegisterInfoService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         RegisterInfo registerInfo = new RegisterInfo();
         registerInfo.setId(id);

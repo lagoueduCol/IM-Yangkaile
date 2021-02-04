@@ -1,8 +1,8 @@
 package com.keller.im.core.message;
 
 import com.alibaba.fastjson.JSON;
-import com.keller.im.core.enums.MessageTypeEnums;
-import com.keller.log.message.body.BaseBody;
+import com.keller.im.core.message.enums.MessageTypeEnums;
+import com.keller.im.core.message.body.BaseBody;
 import lombok.Data;
 
 /**

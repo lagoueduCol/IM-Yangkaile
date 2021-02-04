@@ -1,7 +1,7 @@
-package com.keller.im.core.enums;
+package com.keller.im.core.message.enums;
 
 /**
- * 系统消息类型
+ * 系统消息事件
  * @author yangkaile
  * @date 2021-01-21 17:03:21
  */

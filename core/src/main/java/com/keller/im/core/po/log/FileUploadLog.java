@@ -2,7 +2,6 @@ package com.keller.im.core.po.log;
 
 
 import com.keller.im.core.mybatis.BaseEntity;
-import com.keller.im.core.mybatis.annotation.FieldAttribute;
 import com.keller.im.core.mybatis.annotation.TableAttribute;
 import lombok.Data;
 
@@ -18,62 +17,50 @@ public class FileUploadLog extends BaseEntity{
      /**
      * ID
      */
-     @FieldAttribute
      private Long id;
      /**
      * 用户ID
      */
-     @FieldAttribute
      private Long userId;
      /**
      * 原文件名
      */
-     @FieldAttribute
      private String originFileName;
      /**
      * 文件名
      */
-     @FieldAttribute
      private String fileName;
      /**
      * 文件类型
      */
-     @FieldAttribute
      private String fileType;
      /**
      * 文件大小 KB
      */
-     @FieldAttribute
      private Long size;
      /**
      * URL
      */
-     @FieldAttribute
      private String url;
      /**
      * 视频封面URL
      */
-     @FieldAttribute
      private String coverUrl;
      /**
      * 压缩后的文件URL
      */
-     @FieldAttribute
      private String thumUrl;
      /**
      * 音视频文件时长
      */
-     @FieldAttribute
      private Integer duration;
      /**
      * 上传时间
      */
-     @FieldAttribute
      private Long createTime;
      /**
      * 上传完成时间
      */
-     @FieldAttribute
      private Long finishTime;
 
 

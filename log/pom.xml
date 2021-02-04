@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>im</artifactId>
-        <groupId>com.keller</groupId>
+        <artifactId>root</artifactId>
+        <groupId>com.keller.im</groupId>
         <version>0.0.1</version>
     </parent>
     <artifactId>log</artifactId>
@@ -15,7 +15,7 @@
     <dependencies>
         <!--IM核心包-->
         <dependency>
-            <groupId>com.keller</groupId>
+            <groupId>com.keller.im</groupId>
             <artifactId>core</artifactId>
             <version>0.0.1</version>
         </dependency>
@@ -23,12 +23,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--发送邮件-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
     </dependencies>

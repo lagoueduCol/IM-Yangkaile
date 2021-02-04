@@ -41,7 +41,7 @@ public class MessageInfoService{
      */
     public ServiceResponse update(MessageInfo messageInfo){
         if(messageInfo.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(messageInfo);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class MessageInfoService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         MessageInfo messageInfo = new MessageInfo();
         messageInfo.setId(id);
@@ -89,7 +89,7 @@ public class MessageInfoService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         MessageInfo messageInfo = new MessageInfo();
         messageInfo.setId(id);

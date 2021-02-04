@@ -2,8 +2,6 @@ package com.keller.im.log.service;
 
 import com.keller.im.core.response.ServiceResponse;
 import com.keller.im.core.response.ServiceResponseEnum;
-import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.response.ServiceResponseEnum;
 import com.keller.im.core.po.log.RegisterLog;
 import com.keller.im.core.mapper.log.RegisterLogMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +41,7 @@ public class RegisterLogService{
      */
     public ServiceResponse update(RegisterLog registerLog){
         if(registerLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(registerLog);
         return ServiceResponse.success(result);
@@ -56,7 +54,7 @@ public class RegisterLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         RegisterLog registerLog = new RegisterLog();
         registerLog.setId(id);
@@ -91,7 +89,7 @@ public class RegisterLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         RegisterLog registerLog = new RegisterLog();
         registerLog.setId(id);

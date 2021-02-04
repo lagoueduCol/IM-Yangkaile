@@ -17,5 +17,5 @@ public enum UserActionTypeEnums {
     /**
      * 重置密码
      */
-    ResetPwd;
+    ResetPwd
 }

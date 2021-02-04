@@ -2,7 +2,6 @@ package com.keller.im.core.mapper.log;
 
 import com.keller.im.core.po.log.ExceptionRequestLog;
 import com.keller.im.core.mybatis.BaseMapper;
-import com.keller.im.core.po.log.ExceptionRequestLog;
 import org.apache.ibatis.annotations.*;
 
 /**

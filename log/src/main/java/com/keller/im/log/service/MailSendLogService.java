@@ -41,7 +41,7 @@ public class MailSendLogService{
      */
     public ServiceResponse update(MailSendLog mailSendLog){
         if(mailSendLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(mailSendLog);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class MailSendLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         MailSendLog mailSendLog = new MailSendLog();
         mailSendLog.setId(id);
@@ -89,7 +89,7 @@ public class MailSendLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         MailSendLog mailSendLog = new MailSendLog();
         mailSendLog.setId(id);

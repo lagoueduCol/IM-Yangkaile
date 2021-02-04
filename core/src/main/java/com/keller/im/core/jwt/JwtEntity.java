@@ -1,4 +1,4 @@
-package com.keller.im.core.auth;
+package com.keller.im.core.jwt;
 
 import lombok.Data;
 

@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by yangkaile on 2019/7/12.
+ * 基础的Delete语句提供者
+ * @author yangkaile
+ * @date 2021-02-02 07:31:08
  */
 public class BaseInsertProvider {
     /**

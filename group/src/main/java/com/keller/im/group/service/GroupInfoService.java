@@ -41,7 +41,7 @@ public class GroupInfoService{
      */
     public ServiceResponse update(GroupInfo groupInfo){
         if(groupInfo.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(groupInfo);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class GroupInfoService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         GroupInfo groupInfo = new GroupInfo();
         groupInfo.setId(id);
@@ -89,7 +89,7 @@ public class GroupInfoService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         GroupInfo groupInfo = new GroupInfo();
         groupInfo.setId(id);

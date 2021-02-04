@@ -1,10 +1,8 @@
 package com.keller.im.log.controller;
 
 import com.keller.im.core.po.log.MailSendLog;
-import com.keller.im.core.service.MailSendLogService;
 import com.keller.im.core.response.ServiceResponse;
-import com.keller.im.core.po.log.MailSendLog;
-import com.keller.im.core.service.MailSendLogService;
+import com.keller.im.log.service.MailSendLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

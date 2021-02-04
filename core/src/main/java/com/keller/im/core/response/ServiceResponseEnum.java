@@ -1,21 +1,28 @@
 package com.keller.im.core.response;
 
-
+/**
+ *
+ * @author yangkaile
+ * @date 2021-02-02 07:38:03
+ */
 public enum ServiceResponseEnum {
     /**
-     * 业务处理成功
+     * 000000 表示业务处理成功
      */
     Success("000000","处理成功"),
     /**
-     * 没有ID
+     * 10开头的是通用错误码
      */
-    NoId("100001","缺少ID"),
+    CommonNoId("100001","缺少ID"),
+    CommonNoParams("100002","缺少必要参数"),
+    CommonErrorParams("10003","参数不正确"),
+    CommonNoService("100004","没找到相应的服务"),
+    CommonNoFunction("100005","暂不支持该功能"),
     /**
-     * 缺少必要参数
+     * 20开头的是用户相关错误码
      */
-    NoParams("100002","缺少必要参数"),
+    UserUserNameNotAvailable("200001","用户名不可用");
 
-    NoService("100004","没找到相应的服务");
 
     public String code;
     public String message;

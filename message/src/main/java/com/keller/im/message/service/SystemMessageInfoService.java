@@ -41,7 +41,7 @@ public class SystemMessageInfoService{
      */
     public ServiceResponse update(SystemMessageInfo systemMessageInfo){
         if(systemMessageInfo.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(systemMessageInfo);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class SystemMessageInfoService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         SystemMessageInfo systemMessageInfo = new SystemMessageInfo();
         systemMessageInfo.setId(id);
@@ -89,7 +89,7 @@ public class SystemMessageInfoService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         SystemMessageInfo systemMessageInfo = new SystemMessageInfo();
         systemMessageInfo.setId(id);

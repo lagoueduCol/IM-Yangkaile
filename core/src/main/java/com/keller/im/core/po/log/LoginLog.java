@@ -2,9 +2,6 @@ package com.keller.im.core.po.log;
 
 
 import com.keller.im.core.mybatis.BaseEntity;
-import com.keller.im.core.mybatis.annotation.FieldAttribute;
-import com.keller.im.core.mybatis.BaseEntity;
-import com.keller.im.core.mybatis.annotation.FieldAttribute;
 import com.keller.im.core.mybatis.annotation.TableAttribute;
 import lombok.Data;
 
@@ -20,27 +17,22 @@ public class LoginLog extends BaseEntity {
      /**
      * ID
      */
-     @FieldAttribute
      private Long id;
      /**
      * 用户ID
      */
-     @FieldAttribute
      private Long userId;
      /**
      * IP地址
      */
-     @FieldAttribute
      private String ip;
      /**
      * 登录时间
      */
-     @FieldAttribute
      private Long loginTime;
      /**
      * 登录方式
      */
-     @FieldAttribute
      private Long loginWay;
 
 

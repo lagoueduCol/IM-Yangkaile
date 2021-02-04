@@ -1,12 +1,9 @@
 package com.keller.im.core.mybatis;
 
 
-import com.keller.im.core.mybatis.annotation.FieldAttribute;
 import com.keller.im.core.util.ObjectUtils;
 import com.keller.im.core.util.StringUtils;
 import com.keller.im.core.mybatis.annotation.*;
-import com.keller.im.core.util.ObjectUtils;
-import com.keller.im.core.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -110,16 +107,9 @@ public class SqlFieldReader {
     public static <T extends BaseEntity> List<String> getFields(T entity) {
         Field[] fields = entity.getClass().getDeclaredFields();
         List<String> fieldList = new ArrayList<>();
-        List<String> allList = new ArrayList<>();
         //带@FieldAttribute注解的属性名
         for (Field field : fields) {
-            allList.add(field.getName());
-            if (field.getAnnotation(FieldAttribute.class) != null) {
-                fieldList.add(field.getName());
-            }
-        }
-        if (fieldList.size() == 0) {
-            return allList;
+            fieldList.add(field.getName());
         }
         return fieldList;
     }

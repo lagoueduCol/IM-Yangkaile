@@ -1,8 +1,8 @@
 package com.keller.im.message.websocket;
 
 
+import com.keller.im.core.jwt.JwtUtil;
 import com.keller.im.message.util.MessageBuilder;
-import com.keller.log.auth.JwtUtil;
 import com.keller.im.core.constant.RequestConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,11 +1,8 @@
 package com.keller.im.core;
 
-import com.keller.im.core.enums.MessageTypeEnums;
+import com.keller.im.core.message.enums.MessageTypeEnums;
 import com.keller.im.core.message.SystemMessage;
 import com.keller.im.core.message.body.ImageBody;
-import com.keller.im.core.enums.MessageTypeEnums;
-import com.keller.log.message.SystemMessage;
-import com.keller.log.message.body.ImageBody;
 import org.junit.jupiter.api.Test;
 
 class CoreApplicationTests {

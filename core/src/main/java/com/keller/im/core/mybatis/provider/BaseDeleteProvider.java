@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 基础的删除语句提供者
  * @author yangkaile
  * @date 2019-07-18 09:56:43
  */

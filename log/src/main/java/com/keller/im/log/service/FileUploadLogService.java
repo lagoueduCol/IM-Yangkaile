@@ -41,7 +41,7 @@ public class FileUploadLogService{
      */
     public ServiceResponse update(FileUploadLog fileUploadLog){
         if(fileUploadLog.getId() == null){
-                return ServiceResponse.error(ServiceResponseEnum.NoId);
+                return ServiceResponse.error(ServiceResponseEnum.CommonNoId);
         }
         Integer result = mapper.baseUpdateById(fileUploadLog);
         return ServiceResponse.success(result);
@@ -54,7 +54,7 @@ public class FileUploadLogService{
      */
     public ServiceResponse getById(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         FileUploadLog fileUploadLog = new FileUploadLog();
         fileUploadLog.setId(id);
@@ -89,7 +89,7 @@ public class FileUploadLogService{
      */
     public ServiceResponse delete(Long id){
         if(id == null){
-            return ServiceResponse.error(ServiceResponseEnum.NoParams);
+            return ServiceResponse.error(ServiceResponseEnum.CommonNoParams);
         }
         FileUploadLog fileUploadLog = new FileUploadLog();
         fileUploadLog.setId(id);

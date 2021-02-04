@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 基础的 Mybatis SQL 提供类
+ * 基础的Select提供类
  * @author yangkaile
  * @date 2019-07-12 15:44:55
  *

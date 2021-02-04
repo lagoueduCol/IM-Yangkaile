@@ -13,6 +13,7 @@ import com.keller.im.core.util.StringUtils;
 import java.util.List;
 
 /**
+ * 基础的Update语句提供类
  * @author yangkaile
  * @date 2019-07-18 14:27:30
  */

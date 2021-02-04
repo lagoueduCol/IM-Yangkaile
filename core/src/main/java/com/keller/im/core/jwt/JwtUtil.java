@@ -1,7 +1,5 @@
-package com.keller.im.core.auth;
+package com.keller.im.core.jwt;
 
-import com.keller.im.core.constant.GlobalConstant;
-import com.keller.im.core.enums.RoleEnums;
 import com.keller.im.core.constant.GlobalConstant;
 import com.keller.im.core.enums.RoleEnums;
 import io.jsonwebtoken.Claims;
